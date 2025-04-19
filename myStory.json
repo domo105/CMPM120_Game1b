@@ -1,0 +1,179 @@
+{
+    "Title": "Space Station Evacuation",
+    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
+    "InitialLocation": "Your Room",
+    "KeyList": {
+        "Airlock Password": 0,
+        "Captain's Key": 0
+    },
+    "Locations": {
+        "Your Room": {
+            "Body": "This is your room.",
+            "Choices": [
+                {
+                    "Text": "Leave room",
+                    "Target": "Housing Bay"
+                }
+            ]
+        },
+        "Housing Bay": {
+            "Body": "This is the housing bay.",
+            "Choices": [
+                {
+                    "Text": "Your Room",
+                    "Target": "Your Room"
+                },
+                {
+                    "Text": "Locked Door",
+                    "Target": "Captain's Quarters"
+                },
+                {
+                    "Text": "Outside",
+                    "Target": "Main Bay"
+                }
+            ]
+        },
+        "Captain's Quarters": {
+            "Body": "These are the captain's quarters. You find a piece of paper telling you that the airlock password is 9 5 2 1.",
+            "NeedsKey": "Captain's Key",
+            "Choices": [
+                {
+                    "Text": "Go Back",
+                    "Target": "Housing Bay"
+                }
+            ]
+        },
+        "Main Bay": {
+            "Body": "This is the main bay.",
+            "Choices": [
+                {
+                    "Text": "Housing Bay",
+                    "Target": "Housing Bay"
+                },
+                {
+                    "Text": "Air Locker",
+                    "Target": "Air Locker",
+                    "NeedsKey": "Airlock Password",
+                    "HasMechanism": "AirlockPassword"
+                },
+                {
+                    "Text": "Control Room",
+                    "Target": "Control Room"
+                },
+                {
+                    "Text": "Medical Room",
+                    "Target": "Medical"
+                }
+            ]
+        },
+        "Medical": {
+            "Body": "This is the medical room.",
+            "Choices": [
+                {
+                    "Text": "Out",
+                    "Target": "Main Bay"
+                },
+                {
+                    "Text": "Operating Room",
+                    "Target": "Operating Room"
+                }
+            ]
+        },
+        "Operating Room": {
+            "Body": "This is the operating room.",
+            "Choices": [
+                {
+                    "Text": "Back",
+                    "Target": "Medical"
+                }
+            ]
+        },
+        "Control Room": {
+            "Body": "This is the control room.",
+            "Choices": [
+                {
+                    "Text": "Out",
+                    "Target": "Main Bay"
+                },
+                {
+                    "Text": "Captain's Key",
+                    "Target": "Main Bay",
+                    "HasMechanism": "CaptainsKey"
+                }
+            ]
+        },
+        "Air Locker": {
+            "Body": "This is the air locker.",
+            "Choices": [
+                {
+                    "Text": "Back",
+                    "Target": "Main Bay"
+                },
+                {
+                    "Text": "Make your Escape",
+                    "Target": "Outer Space"
+                }
+            ]
+        },
+        "Outer Space": {
+            "Body": "Congratulations, you made it out!"
+        }
+    },
+    "Mechanisms": {
+        "AirlockPassword": {
+            "Body": "Enter airlock password:",
+            "Type": "Password",
+            "FromLocation": "Main Bay",
+            "CurrentDigit": 0,
+            "NumDigits": 4,
+            "LastPassword": "",
+            "RealPassword": "9 5 2 1 ", 
+            "GoTo": "Air Locker",
+            "Choices": [
+                {
+                    "Text": "1",
+                    "Target": "1 "
+                },
+                {
+                    "Text": "2",
+                    "Target": "2 "
+                },
+                {
+                    "Text": "3",
+                    "Target": "3 "
+                },
+                {
+                    "Text": "4",
+                    "Target": "4 "
+                },
+                {
+                    "Text": "5",
+                    "Target": "5 "
+                },
+                {
+                    "Text": "6",
+                    "Target": "6 "
+                },
+                {
+                    "Text": "7",
+                    "Target": "7 "
+                },
+                {
+                    "Text": "8",
+                    "Target": "8 "
+                },
+                {
+                    "Text": "9",
+                    "Target": "9 "
+                }
+            ]
+        },
+        "CaptainsKey": {
+            "Body": "You found the Captain's Key.",
+            "Type": "Key",
+            "GetKey": "Captain's Key",
+            "FromLocation": "Control Room"
+        }
+
+    }
+}
